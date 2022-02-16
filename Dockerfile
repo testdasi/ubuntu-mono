@@ -1,5 +1,6 @@
 ARG FRM='testdasi/ubuntu-base'
 ARG TAG='latest'
+ARG DEBIAN_FRONTEND="noninteractive"
 
 FROM ${FRM}:${TAG}
 ARG FRM
