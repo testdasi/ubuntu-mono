@@ -21,7 +21,7 @@ RUN /bin/bash /testdasi/scripts-install/install-mono.sh
 RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM} with tag ${TAG}" >> /build_date.info
 
 # debug mode (comment to disable)
-RUN cp /testdasi/scripts-debug/entrypoint.sh / && chmod +x /*.sh
+RUN cp /testdasi/scripts-debug/* / && chmod +x /*.sh
 ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
 
 # Final clean up
