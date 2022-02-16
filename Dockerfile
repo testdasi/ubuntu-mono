@@ -6,7 +6,7 @@ ARG FRM
 ARG TAG
 
 ## build note ##
-RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM}:${TAG}" >> /build_date.info
+RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM}:${TAG}" >> /build.info
 
 ## install static codes ##
 RUN rm -Rf /testdasi \
