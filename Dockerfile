@@ -5,8 +5,9 @@ FROM ${FRM}:${TAG}
 ARG FRM
 ARG TAG
 
-# install static codes
-RUN mkdir -p /temp \
+## install static codes ##
+RUN rm -Rf /testdasi \
+    && mkdir -p /temp \
     && cd /temp \
     && curl -L "https://github.com/testdasi/static-ubuntu/archive/main.zip" -o /temp/temp.zip \
     && unzip /temp/temp.zip \
@@ -14,15 +15,15 @@ RUN mkdir -p /temp \
     && mv /temp/static-ubuntu-main /testdasi \
     && rm -Rf /testdasi/deprecated
 
-# execute execute execute
+## execute execute execute ##
 RUN /bin/bash /testdasi/scripts-install/install-mono.sh
 
-# build note
+## build note ##
 RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM} with tag ${TAG}" >> /build_date.info
 
-# debug mode (comment to disable)
-RUN cp /testdasi/scripts-debug/* / && chmod +x /*.sh
-ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
+## debug mode (comment to disable) ##
+# RUN cp /testdasi/scripts-debug/* / && chmod +x /*.sh
+# ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
 
-# Final clean up
-# RUN rm -Rf /testdasi
+## Final clean up ##
+RUN rm -Rf /testdasi
