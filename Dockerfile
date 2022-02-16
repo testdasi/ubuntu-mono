@@ -17,6 +17,12 @@ RUN mkdir -p /temp \
 # execute execute execute
 RUN /bin/bash /testdasi/scripts-install/install-mono.sh
 
-# clean codes
-RUN rm -Rf /testdasi \
-    && echo "$(date "+%d.%m.%Y %T") Built from ${FRM} with tag ${TAG}" >> /build_date.info
+# build note
+RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM} with tag ${TAG}" >> /build_date.info
+
+# debug mode (comment to disable)
+RUN cp /testdasi/scripts-debug/entrypoint.sh /
+ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
+
+# Final clean up
+# RUN rm -Rf /testdasi
