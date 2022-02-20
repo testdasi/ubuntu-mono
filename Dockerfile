@@ -23,7 +23,7 @@ RUN rm -Rf /testdasi \
 RUN /bin/bash /testdasi/scripts-install/install-mono.sh
 
 ## debug mode ##
-#RUN cp -f /testdasi/scripts-debug/* / && chmod +x /*.sh
+#RUN /bin/bash /testdasi/scripts-install/install-debug-mode.sh
 #ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
 
 ## Final clean up ##
