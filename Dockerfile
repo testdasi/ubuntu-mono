@@ -1,5 +1,5 @@
-# Mono doesn't have jammy yet (as at 24/07/2023 so has to use focal #
-ARG FRM='ubuntu:focal'
+# Mono doesn't have jammy (as at 05/07/2025). Attempting to use noble base and focal repo in install script #
+ARG FRM='ubuntu:noble'
 ARG TAG='latest'
 ARG DEBIAN_FRONTEND='noninteractive'
 
